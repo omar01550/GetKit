@@ -20,7 +20,7 @@ const sizes:sizes = ['s','m','l','xl'];
 
 export const ProductConfiguareContext = createContext(null);
 
-const ProductConfiguare = ({className,id}:{className:string,id:number}) => {
+const ProductConfiguare = ({className,product}:{className:string,id:number}) => {
 
    const {isLoading,user,isAuthenticated} = useKindeBrowserClient()
     
@@ -32,17 +32,18 @@ const ProductConfiguare = ({className,id}:{className:string,id:number}) => {
        id:""
    });
    const route = useRouter();
+   const [error,setError] = useState("");
+
    
 
      
 
    const [customTShirt,setCustomTShirt] = useState({
        name:"",
-       team:"psg",
        number:"",
        type:"Custom",
        uid:"",
-       productid:id
+       
 
    })
   const [loading,setLoading] = useState(false);
@@ -123,16 +124,18 @@ const ProductConfiguare = ({className,id}:{className:string,id:number}) => {
   
                      try {
                          await Wait(4000)
-                         const order = {...customTShirt,size:size}
+                         const order = {...customTShirt,size:size,image:product.image,price:product.price,title:product.title,team:product.club,productid:product._id}
                          const res = await fetch("http://localhost:3000/api/order/custom",{
                            method:"POST",
                            body:JSON.stringify(order)
                          });
   
-                         if (res.status == 200) {
+                         if (res.status != 200) {
                              console.log('dode added');
-                             
+                              setError("failed to send order")
                          };
+
+                         route.push("/user/orders")
   
                          
                      } catch (error) {
@@ -162,7 +165,7 @@ const ProductConfiguare = ({className,id}:{className:string,id:number}) => {
                 :
                 <>
                      
-               <LoginLink postLoginRedirectURL={"/products/"+id} className={
+               <LoginLink postLoginRedirectURL={"/products/"+product.id} className={
                   "add-to-fav w-full py-3 flex  justify-center items-center text-xl  border-[1px] border-solid border-black cursor-pointer hover:bg-black hover:text-white"
                } >
                    Order Now

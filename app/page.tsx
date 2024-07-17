@@ -5,13 +5,20 @@ import Hero from './components/hero';
 import Clubs from './components/clubs';
 import BestSaller from './components/OurProducts';
 import OurProducts from './components/OurProducts';
+import TShirtSkeleton from './components/TShistSkeleton';
 
 const HomePage = () => {
   return (
     <main className="w-full">
              <Hero/>
 
-<Suspense fallback="loading......">
+<Suspense fallback={<section className='flex justify-between items-center lg:items-between flex-wrap px-10 pb-16'>
+    {[1,2,3,4,5,6,7,8].map(() => {
+        return (
+           <TShirtSkeleton/>
+        )
+    })}
+  </section>}>
     <OurProducts/>
   
 </Suspense>

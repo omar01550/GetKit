@@ -3,6 +3,7 @@ import { Cairo } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Header from "./components/header";
+import Footer from "./components/footer";
 
 
 export const metadata: Metadata = {
@@ -32,6 +33,8 @@ export default function RootLayout({
          <Header/>
          
         {children}
+        <Footer/>
+
                </body>
     </html>
   );

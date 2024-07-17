@@ -18,7 +18,7 @@ const TShirtCard = ({TShirt}:{TShirt:ITShirt}) => {
      
   return (
      <div className="w-full md:w-[270px] h-fit p-3 shadow-md rounded-lg mt-20 relative cursor-pointer">
-           <Heart className="absolute right-2 top-2 z-50" size={26}/>
+           {/* <Heart className="absolute right-2 top-2 z-50" size={26}/> */}
             <Link href={`/products/${TShirt._id}`} className='w-full'>
                  <Image src={TShirt.image} alt='not found ' className='w-full h-[200px] hover:scale-110' height={200} width={270}/>
 

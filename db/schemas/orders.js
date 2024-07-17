@@ -24,6 +24,19 @@ const OrderItemSchema = new Schema({
   },
   productid:{
      type:String
+  },
+  completed:{
+     type:Boolean,
+     default:false
+  },
+  image:{
+     type:String
+  },
+  price:{
+     type:Number
+  },
+  title:{
+     type:String
   }
 });
 

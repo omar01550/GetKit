@@ -37,7 +37,7 @@ const ProductId = async ({params}:PageProps) => {
         <ContainerWrapper className='py-20'>
              <section className="product w-full gap-20 flex-wrap lg:fl-nowrap flex justify-start items-start">
                   <div className="imageContainer w-full lg:w-5/12 h-[400px] rounded-md shadow-lg relative">
-                         <Image width={300} height={100} src={product.image} alt='not found ' className='w-full h-full'/>
+                         <Image width={100} height={100} src={product.image} alt='not found ' className='w-full h-full'/>
                   </div>
 
                   <div className="product-details w-full lg:w-5/12">
@@ -68,7 +68,7 @@ const ProductId = async ({params}:PageProps) => {
                       </Link>
 
 
-                      <ProductConfiguare className="" id={product.id}/>
+                      <ProductConfiguare className="" product={product}/>
 
                       
                   </div>

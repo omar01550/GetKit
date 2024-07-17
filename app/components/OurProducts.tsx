@@ -2,8 +2,10 @@ import React from 'react'
 import ContainerWrapper from './containerWrapper'
 import Link from 'next/link'
 import TShirtCard from './T-ShirtCard'
+import Wait from '@/lib/wait'
 
 const OurProducts = async () => {
+         await Wait(5000)
         const res = await fetch("http://localhost:3000/api/products",{
                  cache:"no-cache"
         });

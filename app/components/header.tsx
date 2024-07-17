@@ -21,6 +21,22 @@ const Header = async () => {
                <Link className="logo cursor-pointer text-2xl md:text-3xl capitalize font-semibold" href={'/'}>
                   GetKit
                </Link>
+                   {user != null &&
+                        <nav className=" justify-centyer items-center gap-3 hidden md:flex">
+                             <Link href={'/user/orders'} className='text-lg font-medium hover:opacity-80  hover:text-gray-700'>
+                                 My orders
+                             </Link>
+                             <Link href={'/products'} className='text-lg font-medium hover:opacity-80  hover:text-gray-700'>
+                                 All products
+                             </Link>
+
+                             
+
+                             
+                        </nav>
+
+
+                   }
 
 
                <div className="icons flex justify-center items-center gap-3 md:gap-5">
