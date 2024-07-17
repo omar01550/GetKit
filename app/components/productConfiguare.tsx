@@ -103,6 +103,11 @@ const ProductConfiguare = ({className,product}:{className:string,id:number}) => 
          <AddNameAndNumber/>
 
          {/* add to cart */}
+         {
+            error&&<div className="error text-xl mt-2 text-red-500">
+            {error}
+       </div>
+         }
 
          <div className="btns w-full lg:w-[70%] flex flex-col gap-3 mt-10">
 {/* 

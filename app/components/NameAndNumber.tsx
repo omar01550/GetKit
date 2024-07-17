@@ -67,6 +67,11 @@ const AddNameAndNumber = () => {
            )
         }
         <AlertDialogContent className=' w-[1000px]' >
+          <section className='flex justify-end items-center'>
+          <AlertDialogCancel className='h-fit w-fit '>
+              X
+          </AlertDialogCancel>
+          </section>
                 
           <AlertDialogHeader>
             <AlertDialogTitle className='capitalize '>configure your T-Shirt</AlertDialogTitle>

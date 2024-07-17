@@ -14,17 +14,10 @@ const {products} = await res.json();
             <ContainerWrapper className='flex justify-between items-center flex-wrap'>
                   {
                      products.map((TShirt) => {
-                        
-                         return (
-                          [1,2,3,4,5,6,7,8,9,1,2,3,4].map(() => {
-                            return (
-                              <TShirtCard
-                                 TShirt={TShirt}                              
-                           />
-                            )
-                        })
-                         )
-                     })
+                        return (
+                           <TShirtCard TShirt={TShirt}/>
+                        )
+                     })                        
                   }
             </ContainerWrapper>
       </main>
