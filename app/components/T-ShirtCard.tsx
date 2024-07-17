@@ -3,24 +3,36 @@ import React from 'react';
 import PsgImage from '../../public/images/shirts/psg/psg-away-2.jpg'
 import Link from 'next/link';
 import { Heart, ShoppingBag } from 'lucide-react';
-const TShirtCard = () => {
+
+interface ITShirt { 
+      title:string,
+      price:number,
+      image:string,
+      description:string,
+      club:string,
+      _id:string
+}
+
+const TShirtCard = ({TShirt}:{TShirt:ITShirt}) => {
+     console.log('the t-shirt is ',TShirt);
+     
   return (
      <div className="w-full md:w-[270px] h-fit p-3 shadow-md rounded-lg mt-20 relative cursor-pointer">
            <Heart className="absolute right-2 top-2 z-50" size={26}/>
-            <Link href={'/products/32897489'} className='w-full'>
-                 <Image src={PsgImage} alt='not found ' className='w-full h-[200px] hover:scale-110'/>
+            <Link href={`/products/${TShirt._id}`} className='w-full'>
+                 <Image src={TShirt.image} alt='not found ' className='w-full h-[200px] hover:scale-110' height={200} width={270}/>
 
              </Link>
 
             <div className="content mt-2 px-2">
                   <Link href="/club/fcb" className="underline text-gray-500">
-                       Fcb
+                       {TShirt.club}
                   </Link>
                   <h3 className="text-xl font-semibold capitalize">
-                       Omar medhat
+                       {TShirt.title}
                   </h3>
                   <span className="block text-lg font-semibold">
-                        200$
+                        {TShirt.price}$
                   </span>
                
             </div>

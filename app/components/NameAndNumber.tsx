@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { FormEvent, useContext, useEffect, useState } from 'react'
 import {
     AlertDialog,
     AlertDialogAction,
@@ -14,32 +15,75 @@ import {
 import TShirtCard from './T-ShirtCard'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-  
+import { ProductConfiguareContext } from './productConfiguare'
+import { ArrowLeftCircle, ArrowRight, ArrowRightFromLine } from 'lucide-react'
+import {useKindeAuth} from '@kinde-oss/kinde-auth-react';
+
   
 
 const AddNameAndNumber = () => {
+  const {customTShirt,setCustomTShirt} = useContext(ProductConfiguareContext);
+
+
+  const handleSubmit = async (e:FormEvent) => {
+      e.preventDefault();
+      console.log(customTShirt)
+
+  }
+
+
+  const handleChange = (e:InputEvent) => {
+      setCustomTShirt({
+         ...customTShirt,
+         [e.target.name]:e.target.value
+      })
+  }
+
+  
   return (
    <section className="w-full mt-5">
-         <AlertDialog >
+               <div className="text-3xl">
+
+               </div>
+         <AlertDialog  >
 
         <AlertDialogTrigger asChild>
-          <Button variant="outline" className="capitalize font-semibold ">add the name and number that will be print on the T shirt</Button>
+          <Button variant="outline" className="capitalize font-semibold ">Click to add the name and number that will be print on the T-shirt</Button>
         </AlertDialogTrigger>
-        <AlertDialogContent className=' w-[1000px]'>
+        {
+           (
+            <>
+                 <h1 className="flex items-center gap-2 text-lg font-normal mt-3">
+            <span className="capitalize">the name will print on T-shirt is </span>
+            <span><ArrowRight/></span>
+            <span className='text-lg'>{customTShirt.name || "No Name"}</span>
+          </h1>
+          <h1 className="flex items-center gap-2 text-lg font-normal  mt-2">
+            <span className="">The Number Will Print Is </span>
+            <span><ArrowRight/></span>
+            <span className='text-lg'>{customTShirt.number || "No Number"}</span>
+          </h1>  
+            </>
+           )
+        }
+        <AlertDialogContent className=' w-[1000px]' >
                 
           <AlertDialogHeader>
             <AlertDialogTitle className='capitalize '>configure your T-Shirt</AlertDialogTitle>
             <AlertDialogDescription className='w-full'>
-            <form className={"grid items-start gap-4 w-full"}>
+            <form className={"grid items-start gap-4 w-full"} onSubmit={handleSubmit}>
                 <div className="grid gap-2">
-                    <Label htmlFor="name">T Shirt Name</Label>
-                    <Input type="name" id="email" defaultValue="shadcn@example.com" />
+                    <Label htmlFor="name">T-Shirt Name</Label>
+                    <Input type="name" id="name" name='name' onChange={handleChange} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="number">T Shirt Number</Label>
-                    <Input id="number" defaultValue="10" type='number'/>
+                    <Label htmlFor="number">T-Shirt Number</Label>
+                    <Input id="number"  type='number' name='number' onChange={handleChange}/>
                 </div>
-                <Button type="submit">Submit</Button>
+                <AlertDialogCancel className='w-full px-0'>
+                    <Button type="submit" className='bg-black w-full' >Done</Button>
+                </AlertDialogCancel>
+
             </form>
 
 

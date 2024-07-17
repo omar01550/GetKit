@@ -2,11 +2,6 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const Product = new Schema({
-  team: {
-    type: Schema.Types.ObjectId,
-    ref: 'product',
-    required: true,
-  },
   title: {
     type: String,
     required: true,
@@ -25,4 +20,4 @@ const Product = new Schema({
   }
 });
 
-export const ProductModel = mongoose.models.product || mongoose.model('product', TeamSchema);
+export const ProductModel = mongoose.models.product || mongoose.model('product',Product );

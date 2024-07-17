@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React from 'react';
+import React, { Suspense } from 'react';
 import FcbImage from '../public/images/shirts/fcb/fcp-main.webp'
 import Hero from './components/hero';
 import Clubs from './components/clubs';
@@ -11,7 +11,11 @@ const HomePage = () => {
     <main className="w-full">
              <Hero/>
 
-             <OurProducts/>    
+<Suspense fallback="loading......">
+    <OurProducts/>
+  
+</Suspense>
+
       </main>
 
 )

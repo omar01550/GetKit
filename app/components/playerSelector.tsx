@@ -17,7 +17,12 @@ import { Input } from '@/components/ui/input'
   
   
 
-const PlayerSelector = () => {
+const PlayerSelector = async () => {
+  const res = await fetch("http://localhost:3000/api/products")
+
+const {products} = await res.json();
+
+
   return (
    <section className="w-full mt-5">
          <AlertDialog >
@@ -30,9 +35,9 @@ const PlayerSelector = () => {
             <AlertDialogDescription className='w-full'>
                 <div className="players w-full mt-3 flex justify-center items-center">
                 {
-                    [1].map(() => {
+                    products.map((Tshirt) => {
                         return (
-                            <TShirtCard/>
+                            <TShirtCard TShirt={Tshirt}/>
                         )
                     })
                  }
