@@ -4,11 +4,12 @@ import { Facebook, Github, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-8 px-4">
+    <footer className="py-8 px-4
+    ">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex flex-col space-y-4">
           <Link className="logo cursor-pointer text-2xl md:text-3xl capitalize font-semibold" href={'/'}>
-                  GetKit
+                  Sakr
                </Link>
 
           <p className="text-sm">

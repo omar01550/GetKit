@@ -6,28 +6,31 @@ import Image from 'next/image';
 import {RegisterLink, LoginLink, LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 
-{/* <RegisterLink>Sign up</RegisterLink> */}
 
 const Header = async () => {
     const {getUser} = getKindeServerSession();
 
 
     const user = await getUser();
-    
+   
+
+
   return (
-   <header className="w-full">
+   <header className="
+     w-full shadow-md 
+     bg-gradient-to-r from-blue-50 from-10% via-transparent via-20% to-yellow-100 to-100% ...   ">
          <ContainerWrapper className="py-6 flex justify-between items-center px-3">
                
-               <Link className="logo cursor-pointer text-2xl md:text-3xl capitalize font-semibold" href={'/'}>
-                  GetKit
+               <Link className="logo cursor-pointer text-2xl md:text-4xl capitalize font-semibold" href={'/'}>
+                  Sakr
                </Link>
                    {user != null &&
                         <nav className=" justify-centyer items-center gap-3 hidden md:flex">
                              <Link href={'/user/orders'} className='text-lg font-medium hover:opacity-80  hover:text-gray-700'>
-                                 My orders
+                                 My Courses
                              </Link>
                              <Link href={'/products'} className='text-lg font-medium hover:opacity-80  hover:text-gray-700'>
-                                 All products
+                                 All Courses
                              </Link>
 
                              
@@ -53,7 +56,7 @@ const Header = async () => {
 
                      </div>
                  )
-                 : <LoginLink  className='border-solid border-black border-2 px-4 rounded-sm py-[4px] hover:bg-black hover:text-white'>Sign in</LoginLink>
+                 : <LoginLink  className='border-solid border-black border-2 px-4 rounded-sm py-[4px] hover:bg-blue-500 hover:text-white hover:border-blue-500'>Sign in</LoginLink>
 
                }
 

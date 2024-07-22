@@ -1,36 +1,30 @@
-'use client'
-import Image from 'next/image'
-import React, { useState } from 'react'
-import HeroImage from '../../public/images/website-images/fcb.webp';
-import PSG from '../../public/images/website-images/psg.jpeg'
-import Italy from '../../public/images/website-images/italy.webp'
-
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import React from 'react'
 
 const Hero = () => {
-       const [activeImage,setActiveImage ] = useState(0);
-
-       setTimeout(() => {
-               setActiveImage(() => {
-                     return activeImage == 0 ?1:0
-               })
-       }, 3000);
   return (
-    <section className="hero w-full h-[400px] md:h-[600px] relative flex justify-center items-center">
-            <div className="overlay absolute w-full h-full bg-black opacity-70 left-0 top-0 z-20"></div>
-              {/* <Image src={Fcb} alt='not found hero iamge' className='w-full h-full absolute'/> */}
-              <div className="images-container w-full bg-black absolute  h-full">
-              <Image src={PSG} alt='not found hero iamge' className='w-full h-full'/>
+   <section className="hero w-full flex justify-center items0-center bg-yellow-100 min-h-[350px]">
+            <div className="content flex flex-col gap-8 justify-center items-center">
+                    <h1 className="text-4xl font-bold capitalize">
+                          Find Your Course With Sakr Acadmy
+                    </h1>
 
-              </div>
-           <div className="content relative text-3xl text-white text-center -translate-y-[20px] md:-translate-y-[30px] z-50 px-8 w-full lg:w-7/12 ">
-                 <h1 className="text-4xl md:text-3xl font-semibold capitalize ">
-                        Add your name and number on your best football t-shirt
-                 </h1>
-                 
-           </div>
-    </section>
+                    <div className="input-container flex justify-center items-center">
+                          <input type="text"
+                           className="
+                           text-2xl border-none outline-none bg-gray-200 h-full px-1
+                        border-green-100
+                           " 
+                           placeholder='search for your course'
+
+                          />
+
+                          <button className="px-4 py-2 bg-blue-600 text-white">
+                                search now
+                          </button>
+                    </div>
+            </div>
+   </section>
+
 
 )
 }
